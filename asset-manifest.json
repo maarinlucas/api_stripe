@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/maarinlucas/api_stripe.git/static/css/main.b0a5ca8a.css",
+    "main.js": "/maarinlucas/api_stripe.git/static/js/main.d5d73187.js",
+    "static/js/453.13f08ebf.chunk.js": "/maarinlucas/api_stripe.git/static/js/453.13f08ebf.chunk.js",
+    "static/media/logoc.png": "/maarinlucas/api_stripe.git/static/media/logoc.1add0796cde4ab608e83.png",
+    "index.html": "/maarinlucas/api_stripe.git/index.html",
+    "main.b0a5ca8a.css.map": "/maarinlucas/api_stripe.git/static/css/main.b0a5ca8a.css.map",
+    "main.d5d73187.js.map": "/maarinlucas/api_stripe.git/static/js/main.d5d73187.js.map",
+    "453.13f08ebf.chunk.js.map": "/maarinlucas/api_stripe.git/static/js/453.13f08ebf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b0a5ca8a.css",
+    "static/js/main.d5d73187.js"
+  ]
+}
