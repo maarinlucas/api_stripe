@@ -4,7 +4,7 @@ import Stripe from 'stripe';   // Uso de "import" para Stripe
 
 
 
-const stripe = new Stripe('sk_test_51Pxhv3P2C9v6ddNVQ5CeFwVrzRxibG013TNDfcCckDDeDYeVTlDwwo75m2HVXxCVMUL3tD66v3okVkm6MD7IdkZg00PYENvGMh');
+const stripe = new Stripe('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');
 
 const app = express();
 app.use(cors());
@@ -29,8 +29,8 @@ app.post('/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: 'http://localhost:5173/success',  // Deep Link para a página de sucesso no app
-      cancel_url: 'http://localhost:5173/cancel',    // Deep Link para a página de cancelamento no app
+      success_url: 'https://scheckout-997eb.web.app/success',  // Deep Link para a página de sucesso no app
+      cancel_url: 'https://scheckout-997eb.web.app/cancel',    // Deep Link para a página de cancelamento no app
     });
 
     res.json({ id: session.id });
@@ -41,7 +41,8 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 
-const PORT = 5000
+// eslint-disable-next-line no-undef
+const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

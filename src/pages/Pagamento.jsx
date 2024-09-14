@@ -4,19 +4,21 @@ import React from "react";
 import "./Pages.css";// Arquivo CSS para os estilos
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe(
-  "pk_test_51Pxhv3P2C9v6ddNVKiUXCthna9ecZkjsZMnLmBo7lZrm29KqOgTm6nrsON6MRafJPVSF12L6csF2jf3NgXLAPP9R003mLZ9xCF"
+  "pk_live_51Pxhv3P2C9v6ddNVxAdPebNjJujD6vxFBRtjLl8yrFASXo8yJ16GyfPVUT5g9YaxAix8B3EFKbiRgXciUmHJXnme00t2VB70Zy"
 ); // Substitua pela sua chave pública do Stripe
+
+
 
 const Pagamento = () => {
   const pagar = async () => {
     alert("Aguarde, você será direcionado à página de pagamentos. Após isso, você poderá se cadastrar.");
     try {
       const response = await fetch(
-        "http://localhost:5000/create-checkout-session",
+        "https://scheckout-997eb.web.app/create-checkout-session",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: 5000 }), // Valor do pagamento em centavos
+          body: JSON.stringify({ amount: 100 }), // Valor do pagamento em centavos
         }
       );
 
