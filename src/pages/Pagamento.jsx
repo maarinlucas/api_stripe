@@ -14,28 +14,32 @@ const Pagamento = () => {
     alert("Aguarde, você será direcionado à página de pagamentos. Após isso, você poderá se cadastrar.");
     try {
       const response = await fetch(
-        "https://scheckout-997eb.web.app/create-checkout-session",
+        "https://us-central1-scheckout-997eb.cloudfunctions.net/api/create-checkout-session",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ amount: 100 }), // Valor do pagamento em centavos
         }
       );
-
+  
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Resposta não está no formato JSON");
+      }
+  
       const { id } = await response.json();
-
+  
       const stripe = await stripePromise;
       const { error } = await stripe.redirectToCheckout({ sessionId: id });
-
+  
       if (error) {
         console.error(error);
       }
-   
+  
     } catch (error) {
       alert("Erro ao realizar o pagamento: " + error.message);
     }
   };
-
   return (
     <div className="container">
       <button className="btn" onClick={pagar}>
