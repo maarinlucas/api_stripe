@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    background-color: white; 
+    min-height: 100vh;
+  }
+  
+  .logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .logo {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .title {
+    font-size: 30px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #333; /* cor5 equivalente */
+  }
+  
+  .input {
+    height: 40px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid gray;
+    margin-bottom: 12px;
+    padding: 8px;
+    background-color: white;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    background-color: #5D2DE5; /* cor5 */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .text {
+    padding: 20px;
+    color: #333;
+    font-size: 17px;
+    cursor: pointer;
+  }
+  
+  .copy {
+    padding: 20px;
+    color: #333;
+    font-size: 12px;
+  }
+  
