@@ -3,7 +3,7 @@ dontenv.config();
 import express from 'express';
 import cors from 'cors';
 import Stripe from 'stripe';
-
+import helmet from 'helmet';
 
 
 // eslint-disable-next-line no-undef
@@ -14,6 +14,15 @@ const stripe = new Stripe(process.env.VITE_SECRET_TEST_KEY);
 
 const app = express();
 
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      fontSrc: ["'self'", "https://checkoutsjurados-93dbeb140f86.herokuapp.com"],
+      // Adicione outras diretivas conforme necessário
+    }
+  }
+}));
 app.use(express.json());
 
 app.use(cors());
