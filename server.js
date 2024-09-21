@@ -62,7 +62,7 @@ app.post('/create-checkout-session', async (req, res) => {
 
 
 // eslint-disable-next-line no-undef
-const PORT = process.env.PORT || 5173;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
