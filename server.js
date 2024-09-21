@@ -16,11 +16,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors({
-  origin: 'https://checkoutsjurados-93dbeb140f86.herokuapp.com', // Altere para a URL do seu frontend
-  methods: ['GET', 'POST'],
-  allowedHeaders: {'Content-Type': "application/json"},
-}));
+app.use(cors());
 
 app.use(helmet({
   contentSecurityPolicy: {
