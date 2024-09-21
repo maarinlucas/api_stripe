@@ -12,7 +12,7 @@ const stripePromise = loadStripe("pk_live_51Pxhv3P2C9v6ddNVxAdPebNjJujD6vxFBRtjL
 // email teste
 
 // eslint-disable-next-line no-undef
-const PORT = process.env.PORT || 5173;
+const PORT = process.env.PORT || 5000;
 
 const Pagamento = () => {
   const pagar = async () => {
