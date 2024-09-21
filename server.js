@@ -3,7 +3,7 @@ dontenv.config();
 import express from 'express';
 import cors from 'cors';
 import Stripe from 'stripe';
-import helmet from 'helmet';
+
 
 
 // eslint-disable-next-line no-undef
@@ -14,20 +14,10 @@ const stripe = new Stripe(process.env.VITE_SECRET_TEST_KEY);
 
 const app = express();
 
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      fontSrc: ["'self'", "https://checkoutsjurados-93dbeb140f86.herokuapp.com"],
-      // Adicione outros diretivas conforme necessário
-    }
-  }
-}));
-
 app.use(express.json());
 
 app.use(cors({
-  origin: 'https://checkoutsjurados-93dbeb140f86.herokuapp.com', // Altere para a URL do seu frontend
+  origin: 'http://localhost:5173', // Altere para a URL do seu frontend
   methods: ['GET', 'POST'],
   allowedHeaders: {'Content-Type': "application/json"},
 }));
@@ -53,8 +43,8 @@ app.post('/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: 'https://checkoutsjurados-93dbeb140f86.herokuapp.com/cadastro',
-      cancel_url: 'https://checkoutsjurados-93dbeb140f86.herokuapp.com/cancel',
+      success_url: 'http://localhost:5173/success',
+      cancel_url: 'http://localhost:5173/cancel',
     });
 
     res.json({ id: session.id });
@@ -67,7 +57,7 @@ app.post('/create-checkout-session', async (req, res) => {
 
 
 // eslint-disable-next-line no-undef
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5173;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
