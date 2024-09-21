@@ -12,14 +12,14 @@ const stripePromise = loadStripe("pk_live_51Pxhv3P2C9v6ddNVxAdPebNjJujD6vxFBRtjL
 // email teste
 
 // eslint-disable-next-line no-undef
-const PORT = process.env.PORT || 5000;
+/* const PORT = process.env.PORT || 5000; */
 
 const Pagamento = () => {
   const pagar = async () => {
     alert("Aguarde, você será direcionado à página de pagamentos. Após isso poderá se cadastrar.");
     try {
       const response = await fetch(
-       `http://localhost:${PORT}/create-checkout-session`,
+       `https://checkoutsjurados-93dbeb140f86.herokuapp.com/create-checkout-session`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
