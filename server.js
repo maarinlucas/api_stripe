@@ -3,7 +3,7 @@ dontenv.config();
 import express from 'express';
 import cors from 'cors';
 import Stripe from 'stripe';
-
+import helmet from 'helmet';
 
 
 // eslint-disable-next-line no-undef
@@ -22,7 +22,16 @@ app.use(cors({
   allowedHeaders: {'Content-Type': "application/json"},
 }));
 
-
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      fontSrc: ["'self'", "https://checkoutsjurados-93dbeb140f86.herokuapp.com", "https://fonts.gstatic.com"], // Adicione outros domínios se necessário
+      styleSrc: ["'self'", "https://fonts.googleapis.com"], // Permita estilos de fontes do Google
+      // Adicione outras diretivas conforme necessário
+    }
+  }
+}));
 app.post('/create-checkout-session', async (req, res) => {
   /* const { amount } = req.body; */
 

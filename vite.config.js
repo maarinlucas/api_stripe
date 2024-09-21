@@ -11,5 +11,4 @@ export default defineConfig({
     // eslint-disable-next-line no-undef
     'process.env.VITE_API_KEY': JSON.stringify(process.env.VITE_PUBLIC_TEST_KEY),
   }
-  
 })
