@@ -19,13 +19,18 @@ app.use(helmet({
     directives: {
       defaultSrc: ["'self'"],
       fontSrc: ["'self'", "https://checkoutsjurados-93dbeb140f86.herokuapp.com"],
-      // Adicione outras diretivas conforme necessário
+      // Adicione outros diretivas conforme necessário
     }
   }
 }));
+
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://checkoutsjurados-93dbeb140f86.herokuapp.com', // Altere para a URL do seu frontend
+  methods: ['GET', 'POST'],
+  allowedHeaders: {'Content-Type': "application/json"},
+}));
 
 
 app.post('/create-checkout-session', async (req, res) => {
