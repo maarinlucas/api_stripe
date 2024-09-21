@@ -3,13 +3,25 @@ dontenv.config();
 import express from 'express';
 import cors from 'cors';
 import Stripe from 'stripe';
-
+import helmet from 'helmet'
 
 
 // eslint-disable-next-line no-undef
 const stripe = new Stripe(process.env.VITE_SECRET_TEST_KEY);
 //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
 //chave secreta
+
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      fontSrc: ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"], // Permite carregar fontes desses domínios
+      styleSrc: ["'self'", "https://fonts.googleapis.com"], // Permite carregar CSS
+      scriptSrc: ["'self'"],
+      imgSrc: ["'self'"],
+    },
+  })
+);
 
 
 const app = express();
