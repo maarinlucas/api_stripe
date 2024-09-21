@@ -13,15 +13,14 @@ const stripePromise = loadStripe("pk_test_51Pxhv3P2C9v6ddNVKiUXCthna9ecZkjsZMnLm
 
 const Pagamento = () => {
 
+const dominio = 'http://localhost:5000'
 
-  // eslint-disable-next-line no-undef
-  const PORT = process.env.PORT || 5000;
 
   const pagar = async () => {
     alert("Aguarde, você será direcionado à página de pagamentos. Após isso poderá se cadastrar.");
     try {
       const response = await fetch(
-        `http://localhost:${PORT}/create-checkout-session`,
+        `${dominio}/create-checkout-session`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

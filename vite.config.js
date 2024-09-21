@@ -10,5 +10,10 @@ export default defineConfig({
     'process.env': {},
     // eslint-disable-next-line no-undef
     'process.env.VITE_API_KEY': JSON.stringify(process.env.VITE_PUBLIC_TEST_KEY),
+  },
+  server: {
+    proxy: {
+      '/create-checkout-session': 'http://localhost:5000', // Apontando para o backend rodando na porta 5000
+    },
   }
 })
