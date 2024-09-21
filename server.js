@@ -1,20 +1,26 @@
+import dontenv from 'dotenv'
+dontenv.config();
 import express from 'express';
 import cors from 'cors';
 import Stripe from 'stripe';
 
-const stripe = new Stripe('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');
+
+
+// eslint-disable-next-line no-undef
+const stripe = new Stripe(process.env.VITE_SECRET_TEST_KEY);
+//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
+//chave secreta
+
 
 const app = express();
 
 app.use(express.json());
 
-app.use(cors({
-  origin: ['https://scheckout-997eb.web.app'],
-  methods: ['POST'],
-}));
+app.use(cors());
+
 
 app.post('/create-checkout-session', async (req, res) => {
-  const { amount } = req.body;
+  /* const { amount } = req.body; */
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -26,14 +32,15 @@ app.post('/create-checkout-session', async (req, res) => {
             product_data: {
               name: 'App Sjurados - Acesso Vitalício',
             },
-            unit_amount: amount,  // Valor do pagamento em centavos
+            // eslint-disable-next-line no-undef
+            unit_amount: process.env.VITE_PRODUCT_AMOUNT,  // Valor do pagamento em centavos
           },
           quantity: 1,
         },
       ],
       mode: 'payment',
-      success_url: 'https://scheckout-997eb.web.app/success',
-      cancel_url: 'https://scheckout-997eb.web.app/cancel',
+      success_url: 'https://checkoutsjurados-418c541a9804.herokuapp.com/success',
+      cancel_url: 'https://checkoutsjurados-418c541a9804.herokuapp.com/cancel',
     });
 
     res.json({ id: session.id });
@@ -42,6 +49,8 @@ app.post('/create-checkout-session', async (req, res) => {
     res.status(500).json({ error: 'Erro ao criar sessão de checkout' });
   }
 });
+
+
 
 // eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 5000;
