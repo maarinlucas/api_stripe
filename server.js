@@ -17,7 +17,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: 'http://localhost:5173', // Altere para a URL do seu frontend
+  origin: 'https://checkoutsjurados-93dbeb140f86.herokuapp.com', // Altere para a URL do seu frontend
   methods: ['GET', 'POST'],
   allowedHeaders: {'Content-Type': "application/json"},
 }));
@@ -43,8 +43,8 @@ app.post('/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: 'http://localhost:5173/success',
-      cancel_url: 'http://localhost:5173/cancel',
+      success_url: 'https://checkoutsjurados-93dbeb140f86.herokuapp.com/cadastro',
+      cancel_url: 'https://checkoutsjurados-93dbeb140f86.herokuapp.com/cancel',
     });
 
     res.json({ id: session.id });
