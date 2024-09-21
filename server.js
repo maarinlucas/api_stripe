@@ -3,7 +3,7 @@ dontenv.config();
 import express from 'express';
 import cors from 'cors';
 import Stripe from 'stripe';
-/* import helmet from 'helmet'; */
+import helmet from 'helmet';
 
 
 // eslint-disable-next-line no-undef
@@ -18,16 +18,16 @@ app.use(express.json());
 
 app.use(cors());
 
-/* app.use(helmet({
+app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      fontSrc: ["'self'", "https://checkoutsjurados-93dbeb140f86.herokuapp.com", "https://fonts.gstatic.com"], // Adicione outros domínios se necessário
+      fontSrc: ["'self'", "https://checkoutsjurados-e5fe3b316bd4.herokuapp.com", "https://fonts.gstatic.com"], // Adicione outros domínios se necessário
       styleSrc: ["'self'", "https://fonts.googleapis.com"], // Permita estilos de fontes do Google
       // Adicione outras diretivas conforme necessário
     }
   }
-})); */
+}));
 app.post('/create-checkout-session', async (req, res) => {
   /* const { amount } = req.body; */
 
@@ -48,8 +48,8 @@ app.post('/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: 'http://localhost:5173/cadastro',
-      cancel_url: 'http://localhost:5173/cancel',
+      success_url: 'https://checkoutsjurados-e5fe3b316bd4.herokuapp.com/cadastro',
+      cancel_url: 'https://checkoutsjurados-e5fe3b316bd4.herokuapp.com/cancel',
     });
 
     res.json({ id: session.id });
