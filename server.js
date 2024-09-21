@@ -39,8 +39,8 @@ app.post('/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: 'scheckout997eb.42web.io/cadastro',
-      cancel_url: 'scheckout997eb.42web.io/cancel',
+      success_url: 'http://localhost:5173/cadastro',
+      cancel_url: 'http://localhost:5173/cancel',
     });
 
     res.json({ id: session.id });
