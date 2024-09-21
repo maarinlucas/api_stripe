@@ -48,8 +48,8 @@ app.post('/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: 'https://checkoutsjurados-93dbeb140f86.herokuapp.com/cadastro',
-      cancel_url: 'https://checkoutsjurados-93dbeb140f86.herokuapp.com/cancel',
+      success_url: 'http://localhost:5173/cadastro',
+      cancel_url: 'http://localhost:5173/cancel',
     });
 
     res.json({ id: session.id });

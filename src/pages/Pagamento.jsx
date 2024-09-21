@@ -2,7 +2,7 @@ import "./Pages.css";// Arquivo CSS para os estilos
 
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe("pk_live_51Pxhv3P2C9v6ddNVxAdPebNjJujD6vxFBRtjLl8yrFASXo8yJ16GyfPVUT5g9YaxAix8B3EFKbiRgXciUmHJXnme00t2VB70Zy"); //pk_live_51Pxhv3P2C9v6ddNVxAdPebNjJujD6vxFBRtjLl8yrFASXo8yJ16GyfPVUT5g9YaxAix8B3EFKbiRgXciUmHJXnme00t2VB70Zy
+const stripePromise = loadStripe("pk_test_51Pxhv3P2C9v6ddNVKiUXCthna9ecZkjsZMnLmBo7lZrm29KqOgTm6nrsON6MRafJPVSF12L6csF2jf3NgXLAPP9R003mLZ9xCF"); //pk_live_51Pxhv3P2C9v6ddNVxAdPebNjJujD6vxFBRtjLl8yrFASXo8yJ16GyfPVUT5g9YaxAix8B3EFKbiRgXciUmHJXnme00t2VB70Zy
 // chave pública
 
 // 4000000760000002
