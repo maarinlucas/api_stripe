@@ -11,6 +11,10 @@ const stripe = new Stripe(process.env.VITE_SECRET_TEST_KEY);
 //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
 //chave secreta
 
+
+
+const app = express();
+
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
@@ -22,9 +26,6 @@ app.use(
     },
   })
 );
-
-
-const app = express();
 
 app.use(express.json());
 
