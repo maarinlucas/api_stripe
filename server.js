@@ -52,8 +52,8 @@ app.post('/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: 'https://checkoutsjurados-418c541a9804.herokuapp.com/success',
-      cancel_url: 'https://checkoutsjurados-418c541a9804.herokuapp.com/cancel',
+      success_url: 'https://checkoutsjurados-85968ca5b0c8.herokuapp.com/success',
+      cancel_url: 'https://checkoutsjurados-85968ca5b0c8.herokuapp.com/cancel',
     });
 
     res.json({ id: session.id });
