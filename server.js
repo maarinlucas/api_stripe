@@ -3,7 +3,7 @@ dontenv.config();
 import express from 'express';
 import cors from 'cors';
 import Stripe from 'stripe';
-import helmet from 'helmet';
+/* import helmet from 'helmet'; */
 
 
 // eslint-disable-next-line no-undef
@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use(helmet({
+/* app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
@@ -27,7 +27,7 @@ app.use(helmet({
       // Adicione outras diretivas conforme necessário
     }
   }
-}));
+})); */
 app.post('/create-checkout-session', async (req, res) => {
   /* const { amount } = req.body; */
 
