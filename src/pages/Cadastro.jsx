@@ -63,7 +63,7 @@ const Cadastro = () => {
         const currentDate = new Date().toLocaleString(); // Obtém a data e hora atual
 
         // Armazena o cadastro no Firebase
-        await set(ref(db, "cadastroS/" + deviceIdentifier), {
+        await set(ref(db, "cadastroS/" + user.uid + "- cadastro direto"), {
           nome: name,
           email: email,
           celular: number,
